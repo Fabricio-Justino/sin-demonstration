@@ -16,7 +16,7 @@ console.log(radiansToDeg(Math.PI));
 update();
 
 function update() {
-    clearScreen('black');
+    backGround(0,0,0,0.25);
     circle(x, y, radius, 'white');
 
     let point = {
@@ -27,14 +27,14 @@ function update() {
             return (x + y) - radius * 2;
         }
     };
-    dot(point.x, point.y, point.radius, 'white');
-    angle += 0.05;
-    angle = (angle > Math.PI * 2) ? 0 : angle;
-
-    line(point.x, point.y, point.getArm(), point.y);
     strokeColor('red');
     line(x + radius, y, canvas.width, y);
     strokeColor('white');
+    dot(point.x, point.y, point.radius, 'white');
+    angle += 0.05;
+    angle = (angle > Math.PI * 2) ? 0 : angle;
+    
+    line(point.x, point.y, point.getArm(), point.y);
     spots.push({
         x: point.getArm(),
         y: point.y
